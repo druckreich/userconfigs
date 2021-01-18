@@ -202,8 +202,9 @@ export LC_BOKUUSER=smarti
 export LC_GIT_AUTHOR_NAME="Stefan Martinek"
 export LC_GIT_AUTHOR_EMAIL="stefan.martinek@boku.ac.at"
 
-source ~/userconfigs/.git-prompt.sh
-export PS1="$PS1 $(gitprompt)\[\033[35m\]$\[\033[00m\] "
+# source ~/userconfigs/.git-prompt.sh
+export PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w $(gitprompt)\[\033[35m\]$\[\033[00m\] '
+
 
 # GIT ALIASES
 alias g='git'
