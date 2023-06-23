@@ -198,13 +198,9 @@ alias l='ls -CF'                              #
 # alias cd=cd_func
 # Set config variables first
 
-export LC_BOKUUSER=smarti
-export LC_GIT_AUTHOR_NAME="Stefan Martinek"
-export LC_GIT_AUTHOR_EMAIL="stefan.martinek@boku.ac.at"
-
-# source ~/userconfigs/.git-prompt.sh
-export PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w $(gitprompt)\[\033[35m\]$\[\033[00m\] '
-
+#source ~/.userconfigs/.git-prompt.sh
+#export PS1='\[\033[01;32m\]\u@\h \[\033[01;34m\]\w $(gitprompt)\n|-> \[\033[35m\]$\[\033[00m\] '
+GIT_PROMPT_THEME=Solarized
 
 # GIT ALIASES
 alias g='git'
@@ -214,6 +210,12 @@ alias gd='git diff'
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/.bash-git-prompt" ] && \. "$NVM_DIR/.bash-git-prompt/bash_completion"  # This loads nvm bash_completion
+
+if [ -f "$HOME/.bash-git-prompt/gitprompt.sh" ]; then
+	GIT_PROMPT_ONLY_IN_REPO=1
+	source $HOME/.bash-git-prompt/gitprompt.sh
+fi
 
 if [ "$(hostname)" == "lenovo-p15s" ]; then
     source ~/userconfigs/.ssh-agent
